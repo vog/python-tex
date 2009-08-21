@@ -121,3 +121,46 @@ def latex2pdf(tex_source, **kwargs):
     """Convert LaTeX source to PDF."""
     return convert(tex_source, 'latex', 'pdf', **kwargs)
 
+_latex_special_chars = {
+    u"$":  u"\\$",
+    u"%":  u"\\%",
+    u"&":  u"\\&",
+    u"#":  u"\\#",
+    u"_":  u"\\_",
+    u"{":  u"\\{",
+    u"}":  u"\\}",
+    u"[":  u"{[}",
+    u"]":  u"{]}",
+    u'"':  u"{''}",
+    u"\\": u"\\textbackslash{}",
+    u"~":  u"\\textasciitilde{}",
+    u"<":  u"\\textless{}",
+    u">":  u"\\textgreater{}",
+    u"^":  u"\\textasciicircum{}",
+    u"`":  u"{}`",   # avoid ?` and !`
+    u"\n": u"\\\\",
+}
+
+def escape_latex(s):
+    r"""Escape a unicode string for LaTeX.
+
+    :Warning:
+        The source string must not contain empty lines such as:
+            - u"\n..." -- empty first line
+            - u"...\n\n..." -- empty line in between
+            - u"...\n" -- empty last line
+
+    :Parameters:
+        - `s`: unicode object to escape for LaTeX
+
+    >>> s = u'\\"{}_&%a$b#\nc[]"~<>^`\\'
+    >>> escape_latex(s)
+    u"\\textbackslash{}{''}\\{\\}\\_\\&\\%a\\$b\\#\\\\c{[}{]}{''}\\textasciitilde{}\\textless{}\\textgreater{}\\textasciicircum{}{}`\\textbackslash{}"
+    >>> print s
+    \"{}_&%a$b#
+    c[]"~<>^`\
+    >>> print escape_latex(s)
+    \textbackslash{}{''}\{\}\_\&\%a\$b\#\\c{[}{]}{''}\textasciitilde{}\textless{}\textgreater{}\textasciicircum{}{}`\textbackslash{}
+    """
+    return u''.join(_latex_special_chars.get(c, c) for c in s)
+
