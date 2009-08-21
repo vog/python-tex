@@ -168,7 +168,7 @@ def escape_latex(s):
 
     >>> s = u'\\"{}_&%a$b#\nc[]"~<>^`\\'
     >>> escape_latex(s)
-    u'\\textbackslash{}{''}\\{\\}\\_\\&\\%a\\$b\\#\\\\c{[}{]}{''}\\textasciitilde{}\\textless{}\\textgreater{}\\textasciicircum{}{}`\\textbackslash{}'
+    u"\\textbackslash{}{''}\\{\\}\\_\\&\\%a\\$b\\#\\\\c{[}{]}{''}\\textasciitilde{}\\textless{}\\textgreater{}\\textasciicircum{}{}`\\textbackslash{}"
     >>> print s
     \"{}_&%a$b#
     c[]"~<>^`\
