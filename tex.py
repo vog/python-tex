@@ -46,9 +46,8 @@ def _file_write(filename, contents):
 
 def convert(tex_source, input_format, output_format, max_runs=5):
     """Convert LaTeX or TeX source to PDF or DVI."""
-    # check and convert arguments
-    if isinstance(tex_source, unicode):
-        tex_source = tex_source.encode('UTF-8')
+    # check arguments
+    assert isinstance(tex_source, unicode)
     try:
         (tex_cmd, output_suffix) = {
             ('tex',   'dvi'): ('tex',      '.dvi'),
@@ -66,7 +65,7 @@ def convert(tex_source, input_format, output_format, max_runs=5):
     try:
         # create LaTeX source file
         tex_filename = os.path.join(tex_dir, 'texput.tex')
-        _file_write(tex_filename, tex_source)
+        _file_write(tex_filename, tex_source.encode('UTF-8'))
         # run LaTeX processor as often as necessary
         aux_old = None
         for i in xrange(max_runs):
