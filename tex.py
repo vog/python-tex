@@ -28,6 +28,7 @@ import string
 import random
 import os
 import os.path
+import tempfile
 import subprocess
 
 def _file_read(filename):
@@ -61,10 +62,7 @@ def convert(tex_source, input_format, output_format, max_runs=5):
     if max_runs < 2:
         raise ValueError('max_runs must be at least 2.')
     # create temporary directory
-    chars = string.ascii_letters + string.digits
-    random_name = ''.join(random.choice(chars) for i in xrange(20))
-    tex_dir = os.path.join('/tmp', 'tex-temp-%s' % random_name)
-    os.mkdir(tex_dir, 0700)
+    tex_dir = tempfile.mkdtemp(suffix='', prefix='tex-temp-')
     try:
         # create LaTeX source file
         tex_filename = os.path.join(tex_dir, 'texput.tex')
