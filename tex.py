@@ -1,4 +1,4 @@
-"""Convert LaTeX or TeX source to PDF or DVI.
+"""Convert LaTeX or TeX source to PDF or DVI, and escape strings for LaTeX.
 
 :Version:   0.1
 :Requires:  Python 2.4 or higher
