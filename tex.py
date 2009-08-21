@@ -1,6 +1,6 @@
 '''Convert LaTeX or TeX source to PDF or DVI, and escape strings for LaTeX.'''
 
-__version__      = '1.1'
+__version__      = '1.2'
 __author__       = 'Volker Grabsch'
 __author_email__ = 'vog@notjusthosting.com'
 __url__          = 'http://www.profv.de/python-tex/'
