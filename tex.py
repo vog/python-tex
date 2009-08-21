@@ -164,3 +164,10 @@ def escape_latex(s):
     """
     return u''.join(_latex_special_chars.get(c, c) for c in s)
 
+def _test():
+    """Run all doc tests of this module."""
+    import doctest, tex
+    return doctest.testmod(tex)
+
+if __name__ == "__main__":
+    _test()
