@@ -46,20 +46,20 @@ import tempfile
 import subprocess
 
 def _file_read(filename):
-    """Read the contents of a file and close it properly."""
+    '''Read the contents of a file and close it properly.'''
     f = file(filename, 'rb')
     contents = f.read()
     f.close()
     return contents
 
 def _file_write(filename, contents):
-    """Write into a file and close it properly."""
+    '''Write into a file and close it properly.'''
     f = file(filename, 'wb')
     f.write(contents)
     f.close()
 
 def convert(tex_source, input_format, output_format, max_runs=5):
-    """Convert LaTeX or TeX source to PDF or DVI."""
+    '''Convert LaTeX or TeX source to PDF or DVI.'''
     # check arguments
     assert isinstance(tex_source, unicode)
     try:
@@ -119,68 +119,68 @@ def convert(tex_source, input_format, output_format, max_runs=5):
         os.rmdir(tex_dir)
 
 def tex2dvi(tex_source, **kwargs):
-    """Convert TeX source to DVI."""
+    '''Convert TeX source to DVI.'''
     return convert(tex_source, 'tex', 'dvi', **kwargs)
 
 def latex2dvi(tex_source, **kwargs):
-    """Convert LaTeX source to DVI."""
+    '''Convert LaTeX source to DVI.'''
     return convert(tex_source, 'latex', 'dvi', **kwargs)
 
 def tex2pdf(tex_source, **kwargs):
-    """Convert TeX source to PDF."""
+    '''Convert TeX source to PDF.'''
     return convert(tex_source, 'tex', 'pdf', **kwargs)
 
 def latex2pdf(tex_source, **kwargs):
-    """Convert LaTeX source to PDF."""
+    '''Convert LaTeX source to PDF.'''
     return convert(tex_source, 'latex', 'pdf', **kwargs)
 
 _latex_special_chars = {
-    u"$":  u"\\$",
-    u"%":  u"\\%",
-    u"&":  u"\\&",
-    u"#":  u"\\#",
-    u"_":  u"\\_",
-    u"{":  u"\\{",
-    u"}":  u"\\}",
-    u"[":  u"{[}",
-    u"]":  u"{]}",
+    u'$':  u'\\$',
+    u'%':  u'\\%',
+    u'&':  u'\\&',
+    u'#':  u'\\#',
+    u'_':  u'\\_',
+    u'{':  u'\\{',
+    u'}':  u'\\}',
+    u'[':  u'{[}',
+    u']':  u'{]}',
     u'"':  u"{''}",
-    u"\\": u"\\textbackslash{}",
-    u"~":  u"\\textasciitilde{}",
-    u"<":  u"\\textless{}",
-    u">":  u"\\textgreater{}",
-    u"^":  u"\\textasciicircum{}",
-    u"`":  u"{}`",   # avoid ?` and !`
-    u"\n": u"\\\\",
+    u'\\': u'\\textbackslash{}',
+    u'~':  u'\\textasciitilde{}',
+    u'<':  u'\\textless{}',
+    u'>':  u'\\textgreater{}',
+    u'^':  u'\\textasciicircum{}',
+    u'`':  u'{}`',   # avoid ?` and !`
+    u'\n': u'\\\\',
 }
 
 def escape_latex(s):
-    r"""Escape a unicode string for LaTeX.
+    r'''Escape a unicode string for LaTeX.
 
     :Warning:
         The source string must not contain empty lines such as:
-            - u"\n..." -- empty first line
-            - u"...\n\n..." -- empty line in between
-            - u"...\n" -- empty last line
+            - u'\n...' -- empty first line
+            - u'...\n\n...' -- empty line in between
+            - u'...\n' -- empty last line
 
     :Parameters:
         - `s`: unicode object to escape for LaTeX
 
     >>> s = u'\\"{}_&%a$b#\nc[]"~<>^`\\'
     >>> escape_latex(s)
-    u"\\textbackslash{}{''}\\{\\}\\_\\&\\%a\\$b\\#\\\\c{[}{]}{''}\\textasciitilde{}\\textless{}\\textgreater{}\\textasciicircum{}{}`\\textbackslash{}"
+    u'\\textbackslash{}{''}\\{\\}\\_\\&\\%a\\$b\\#\\\\c{[}{]}{''}\\textasciitilde{}\\textless{}\\textgreater{}\\textasciicircum{}{}`\\textbackslash{}'
     >>> print s
     \"{}_&%a$b#
     c[]"~<>^`\
     >>> print escape_latex(s)
     \textbackslash{}{''}\{\}\_\&\%a\$b\#\\c{[}{]}{''}\textasciitilde{}\textless{}\textgreater{}\textasciicircum{}{}`\textbackslash{}
-    """
+    '''
     return u''.join(_latex_special_chars.get(c, c) for c in s)
 
 def _test():
-    """Run all doc tests of this module."""
+    '''Run all doc tests of this module.'''
     import doctest, tex
     return doctest.testmod(tex)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     _test()
