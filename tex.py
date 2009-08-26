@@ -22,7 +22,7 @@ PDF size: 5.6 KB
 '\n%%EOF\n'
 '''
 
-__version__      = '1.2'
+__version__      = '1.3'
 __author__       = 'Volker Grabsch'
 __author_email__ = 'vog@notjusthosting.com'
 __url__          = 'http://www.profv.de/python-tex/'
