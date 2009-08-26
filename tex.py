@@ -5,18 +5,18 @@ __author__       = 'Volker Grabsch'
 __author_email__ = 'vog@notjusthosting.com'
 __url__          = 'http://www.profv.de/python-tex/'
 __classifiers__  = '''
-Development Status :: 5 - Production/Stable
-Development Status :: 6 - Mature
-Intended Audience :: Developers
-License :: OSI Approved :: MIT License
-Operating System :: OS Independent
-Programming Language :: Python
-Topic :: Documentation
-Topic :: Office/Business
-Topic :: Printing
-Topic :: Software Development :: Libraries :: Python Modules
-Topic :: Text Processing :: Markup :: LaTeX
-'''
+                   Development Status :: 5 - Production/Stable
+                   Development Status :: 6 - Mature
+                   Intended Audience :: Developers
+                   License :: OSI Approved :: MIT License
+                   Operating System :: OS Independent
+                   Programming Language :: Python
+                   Topic :: Documentation
+                   Topic :: Office/Business
+                   Topic :: Printing
+                   Topic :: Software Development :: Libraries :: Python Modules
+                   Topic :: Text Processing :: Markup :: LaTeX
+                   '''
 __license__      = '''
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

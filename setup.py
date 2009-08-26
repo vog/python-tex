@@ -13,5 +13,5 @@ setup(
     author_email     = module.__author_email__,
     url              = module.__url__,
     py_modules       = [module.__name__],
-    classifiers      = module.__classifiers__.strip('\n').split('\n'),
+    classifiers      = [c.strip() for c in module.__classifiers__.strip().split('\n')],
 )
