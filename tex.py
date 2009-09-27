@@ -67,16 +67,16 @@ import tempfile
 import subprocess
 
 def _file_read(filename):
-    '''Read the contents of a file and close it properly.'''
+    '''Read the content of a file and close it properly.'''
     f = file(filename, 'rb')
-    contents = f.read()
+    content = f.read()
     f.close()
-    return contents
+    return content
 
-def _file_write(filename, contents):
+def _file_write(filename, content):
     '''Write into a file and close it properly.'''
     f = file(filename, 'wb')
-    f.write(contents)
+    f.write(content)
     f.close()
 
 def convert(tex_source, input_format, output_format, max_runs=5):
