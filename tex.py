@@ -140,6 +140,10 @@ def convert(tex_source, input_format, output_format, max_runs=5):
                 except:
                     raise ValueError('No output file was produced.')
             aux_old = aux
+            # TODO:
+            # Also handle makeindex and bibtex,
+            # possibly in a similar manner as described in:
+            # http://vim-latex.sourceforge.net/documentation/latex-suite/compiling-multiple.html
         raise ValueError("%s didn't stabilize after %i runs"
                          % ('texput.aux', max_runs))
     finally:
