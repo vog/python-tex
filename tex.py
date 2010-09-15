@@ -3,10 +3,20 @@ r'''Convert LaTeX or TeX source to PDF or DVI, and escape strings for LaTeX.
 This is a convenient interface
 to the TeX command line tools
 that handles all kinds of errors without much fuzz.
+
 Temporary files are always cleaned up.
-Whenever there are issues with the TeX source,
-an exception that contains all information of the TeX log
-will be thrown.
+The TeX interpreter is automatically re-run as often as necessary,
+and an exception is thrown
+in case the output fails to stabilize soon enough.
+The TeX interpreter is always run in batch mode,
+so it won't ever get in your way by stopping your application
+when there are issues with your TeX source.
+Instead, an exception is thrown
+that contains all information of the TeX log.
+
+This enables you to debug TeX related issues
+directly within your application
+or within an interactive Python interpreter session.
 
 Example:
 
