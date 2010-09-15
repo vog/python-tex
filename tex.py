@@ -67,12 +67,13 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 '''
 
-import string
-import random
 import os
 import os.path
-import tempfile
+import random
+import shutil
+import string
 import subprocess
+import tempfile
 
 def _file_read(filename):
     '''Read the content of a file and close it properly.'''
@@ -143,9 +144,7 @@ def convert(tex_source, input_format, output_format, max_runs=5):
                          % ('texput.aux', max_runs))
     finally:
         # remove temporary directory
-        for filename in os.listdir(tex_dir):
-            os.remove(os.path.join(tex_dir, filename))
-        os.rmdir(tex_dir)
+        shutil.rmtree(tex_dir)
 
 def tex2dvi(tex_source, **kwargs):
     '''Convert TeX source to DVI.'''
