@@ -1,5 +1,13 @@
 r'''Convert LaTeX or TeX source to PDF or DVI, and escape strings for LaTeX.
 
+This is a convenient interface
+to the TeX command line tools
+that handles all kinds of errors without much fuzz.
+Temporary files are always cleaned up.
+Whenever there are issues with the TeX source,
+an exception that contains all information of the TeX log
+will be thrown.
+
 Example:
 
 >>> from tex import latex2pdf
