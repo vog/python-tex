@@ -1,6 +1,10 @@
 r'''Convert LaTeX or TeX source to PDF or DVI, and escape strings for LaTeX.
 
-This is a convenient interface
+**The python-tex project is obsolete!** Please have a look at Texcaller_.
+
+.. _Texcaller: http://www.profv.de/texcaller/
+
+Python-tex is a convenient interface
 to the TeX command line tools
 that handles all kinds of errors without much fuzz.
 
@@ -46,6 +50,7 @@ __url__          = 'http://www.profv.de/python-tex/'
 __classifiers__  = '''
                    Development Status :: 5 - Production/Stable
                    Development Status :: 6 - Mature
+                   Development Status :: 7 - Inactive
                    Intended Audience :: Developers
                    License :: OSI Approved :: MIT License
                    Operating System :: OS Independent
